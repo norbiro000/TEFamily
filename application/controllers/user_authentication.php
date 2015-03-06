@@ -1,3 +1,5 @@
+
+
 <?php
 
 session_start(); //we need to start session in order to access it through CI
