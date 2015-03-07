@@ -14,7 +14,6 @@
 			<label for="password">Password : </label><input type="password" name="password">
 			<label for="conf-password">Confirm-password : </label><input type="password" name="conf-password">
 			<input type="submit" value="Add">
-
 		<?php echo form_close()?>
 	</div>
 </body>
