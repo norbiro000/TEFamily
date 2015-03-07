@@ -35,10 +35,12 @@ class Member_Management extends CI_Controller {
 				'member_firstname' => $this->input->post('fname'),
 				'member_lastname' => $this->input->post('lname'),
 				'member_password' => $this->input->post('password'),
+				'member_picprofile' => 'null',
 				'member_type' => 'student'
 				);
 			$this->db->insert('tb_member',$data);
 			$this->load->view('member_management_add_view');
+			redirect('Member_Management');
 		}
 	}
 
@@ -85,13 +87,16 @@ class Member_Management extends CI_Controller {
 				'member_telephone' => $this->input->post('telnumber')
 				);
 
-			var_dump($data);
 			$this->db->where('member_studentID',$stdID);
-			echo$this->db->update('tb_member',$data);
+			$this->db->update('tb_member',$data);
+			redirect('Member_Management');
 		}
 	}
 	public function member_delete(){
-		echo $this->uri->segment(3);
+		$stdID=$this->uri->segment(3);
+		$this->db->where('member_studentID',$stdID);
+		$this->db->delete('tb_member');
+		redirect('member_management');
 	}
 
 }?>
