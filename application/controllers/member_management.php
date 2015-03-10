@@ -19,8 +19,8 @@ class Member_Management extends CI_Controller {
 
 	public function member_add_save(){
 		$this->form_validation->set_rules('studentid','studentid','required|min_length[10]|max_length[10]|is_unique[tb_member.member_studentID]');
-		$this->form_validation->set_rules('fname','fname','required');
-		$this->form_validation->set_rules('lname','lname','required');
+		$this->form_validation->set_rules('fname','fname','required|alpha');
+		$this->form_validation->set_rules('lname','lname','required|alpha');
 		$this->form_validation->set_rules('password','Password','required');
 		$this->form_validation->set_rules('conf-password','Password Confirmation','required|matches[password]');
 
@@ -59,7 +59,7 @@ class Member_Management extends CI_Controller {
 		//check old data
 		$stdID = $this->input->post('studentidhide');
 		$result = $this->member_management_database->load_member_by_id($stdID);
-		var_dump($result);
+
 		if($result[0]['member_username']!=$this->input->post('username') || $result[0]['member_email']!=$this->input->post('email')){
 			$this->form_validation->set_rules('username','Username','is_unique[tb_member.member_username]');
 			$this->form_validation->set_rules('email','Email','is_unique[tb_member.member_email]');
