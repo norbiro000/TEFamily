@@ -21,10 +21,10 @@
 			<label for="newsdetails">Datails:</label><input type="text" name="newsdetails">
 			<label for="date">Date :</label>
 			<select name="date">
-			<option value="" selected="">--Date--</option>
-			<?php for($i=1;$i<=31;$i++){?>
-				<option value="<?php echo $i;?>"><?php echo $i;?></option>
-			<?php }?>
+				<option value="" selected="">--Date--</option>
+				<?php for($i=1;$i<=31;$i++){?>
+					<option value="<?php if(strlen($i)==1){echo "0";} echo $i;?>"><?php echo $i;?></option>
+				<?php }?>
 			</select>
 			<label for="date">Month :</label>
 			<select name="month">
@@ -42,7 +42,7 @@
 				<option value="11">November</option>
 				<option value="12">December</option>
 			</select>
-			<label for="newsyear">Year:</label><input type="date" name="year" />
+			<label for="year">Year:</label><input type="date" name="year" />
 			<input type="submit" name="submit" value="Search">
 		<?php form_close()?>
 	</div>	
