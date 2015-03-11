@@ -23,6 +23,7 @@
 			<nav>
 				<a href="<?php echo base_url()?>index.php/profile">Home</a>
 				<a href="<?php echo base_url()?>index.php/news_feed">News Feed</a>
+				<a href="<?php echo base_url()?>index.php/news_feed">My Family</a>
 				<a href="<?php echo base_url()?>index.php/user_authentication/logout">Logut</a>
 			</nav>
 		<?php } ?>

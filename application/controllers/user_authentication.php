@@ -24,6 +24,7 @@ Class User_Authentication extends CI_Controller {
 	}
 
 	public function index(){
+		$this->load->view('menu_view');
 		if($this->session->userdata('logged_in')==null){
 			$this->load->view('login_form');
 		}else{
