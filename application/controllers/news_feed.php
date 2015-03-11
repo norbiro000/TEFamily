@@ -1,21 +1,25 @@
 <?php
 class News_feed extends CI_Controller {
+
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('news_feed_database');
 		$this->load->helper('date');
 		$this->load->helper('url');
 		$this->load->library('image_lib');
+		$this->load->controller('search');
 	}
+
 	public function index(){
 		$this->show_news_feed();
+		$this->load->view('search_news_view');
 		$this->load->view('news_feed_post_view');
 		$this->read_news($this->uri->segment(3));
 	}
 
 	public function show_news_feed(){
 		$result = $this->news_feed_database->load_public_news('public');
-		$viewer = array('studentid' => $this->session->userdata('logged_in')['studentid'],'usertype' => $this->session->userdata('logged_in')['usertype']);
+		$viewer = array('studentid' => $this->session->userdata('logged_in')['studentid'],'usertype' => $this->session->userdata('logged_in')['usertype']);	
 		$this->load->view('news_feed_view.php', array('data'=> $result,'viewer'=> $viewer));
 	}
 

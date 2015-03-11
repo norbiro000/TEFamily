@@ -4,7 +4,7 @@
 	    $CI =& get_instance();
 	    // We need to use $CI->session instead of $this->session
 	    $user = $CI->session->userdata('logged_in');
-	    if (!isset($user)) { return false; } else { return true; }
+	    if ($user==false) { return false; } else { return true; }
 	}
 
 	function getUserType(){
