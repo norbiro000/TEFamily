@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 <script src="<?php echo base_url()?>assets/js/jquery.js"></script> 
 	<meta charset="UTF-8">
+	 <script src="<?php echo base_url()?>assets/js/jquery.js"></script> 
 	<title></title>
-		<script type="text/javascript" language="javascript">
+	<script type="text/javascript" language="javascript">
 	   	$(document).ready(function() {
 			$("img").error(function () {
 			 $(this).unbind("error").attr("src", "<?php echo base_url(); ?>assets/img/students/null.jpg");
@@ -50,8 +50,5 @@
 			</article>
 		</section>
 	</div>
-
-
-
 </body>
 </html>

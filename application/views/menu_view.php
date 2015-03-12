@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Fuck</title>
+	<link href="<?php echo base_url(); ?>assets/css/nav.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/css/reset.css" rel="stylesheet">
+	<script src="<?php echo base_url()?>assets/js/jquery.js"></script> 
+	<title></title>
 </head>
 <body>
-
 
 <?php 
 {
@@ -12,29 +14,35 @@
 	if(is_logged_in()==true){?>
 	<!--logged in menu -->
 		<?php if(getUserType()==='admin'){?>
-			<nav>
-				<a href="<?php echo base_url()?>index.php">Home</a>
-				<a href="<?php echo base_url()?>index.php/profile">Profile</a>
-				<a href="<?php echo base_url()?>index.php/news_feed">News Feed</a>
-				<a href="<?php echo base_url()?>index.php/news_feed">Admin Board</a>
-				<a href="<?php echo base_url()?>index.php/user_authentication/logout">Logut</a>
+			<nav id="cssmenu">
+				<ul>
+					<li><a href="<?php echo base_url()?>index.php">Home</a></li>
+					<li><a href="<?php echo base_url()?>index.php/profile">Profile</a></li>
+					<li><a href="<?php echo base_url()?>index.php/news_feed">News Feed</a></li>
+					<li><a href="<?php echo base_url()?>index.php/member_management">Member Management</a></li>
+					<li><a href="<?php echo base_url()?>index.php/user_authentication/logout">Logout</a></li>
+				</ul>
 			</nav>
 		<?php }else{ ?>
-			<nav>
-				<a href="<?php echo base_url()?>index.php/profile">Home</a>
-				<a href="<?php echo base_url()?>index.php/news_feed">News Feed</a>
-				<a href="<?php echo base_url()?>index.php/news_feed">My Family</a>
-				<a href="<?php echo base_url()?>index.php/user_authentication/logout">Logut</a>
+			<nav id="cssmenu">
+				<ul>
+					<li><a href="<?php echo base_url()?>index.php/profile">Home</a></li>
+					<li><a href="<?php echo base_url()?>index.php/news_feed">News Feed</a></li>
+					<li><a href="<?php echo base_url()?>index.php/family">My Family</a></li>
+					<li><a href="<?php echo base_url()?>index.php/user_authentication/logout">Logout</a></li>
+				</ul>
 			</nav>
 		<?php } ?>
 <?php 
 	}else{ 
 ?>
 	<!--not login menu -->
-	<nav>
-		<a href="<?php echo base_url()?>index.php">Home</a>
-		<a href="<?php echo base_url()?>index.php/news_feed">News Feed</a>
-		<a href="<?php echo base_url()?>index.php/user_authentication/">Login</a>
+	<nav id="cssmenu">
+		<ul>
+		<li><a href="<?php echo base_url()?>index.php">Home</a></li>
+		<li><a href="<?php echo base_url()?>index.php/news_feed">News Feed</a></li>
+		<li><a href="<?php echo base_url()?>index.php/user_authentication/">Login</a></li>
+		</ul>
 	</nav>	
 <?php
 	}
