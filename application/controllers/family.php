@@ -18,9 +18,27 @@ Class Family extends CI_Controller{
 		$year = $this->setFamily($studentid);
 		$familyName=$this->family_database->load_family_name($studentid);
 		$familyList=$this->family_database->load_family_member($familyName[0]['member_family']);
-		$takeList = $this->family_database->load_family_take($familyName[0]['member_family']);
+		$takeNames=$this->family_database->load_family_buddy_name($familyName[0]['member_family']);
+		$takeList = $this->family_database->load_family_buddy($familyName[0]['member_family']);
+		$partnerData=array();
+
+		foreach ($takeList as $key) {
+			for($i=0;$i<count($takeNames);$i++){
+				if($key['member_family']==$takeNames[$i]['take_partner']){
+					$vartest{$i}[] = $key;
+					//array_push($take, $vartest{$i});
+				}
+			}
+		}
+		for($i=0;$i<count($takeNames);$i++){
+			array_push($partnerData, $vartest{$i});
+		}
+
 		
-		$data = array('familyData'=>$familyList,'partnerData'=>$takeList);
+		//$test = array('tttt'=>$vartest{}); 
+		
+
+		$data = array('familyData'=>$familyList,'partnerData'=>$partnerData);
 		$this->load->view('menu_view');
 		$this->load->view('family_view',$data);
 	}

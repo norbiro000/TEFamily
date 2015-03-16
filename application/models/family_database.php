@@ -26,7 +26,7 @@ CLass Family_Database extends CI_Model{
 		return $query->result_array();
 	}
 
-	public function load_family_take($familyName){
+	public function load_family_buddy($familyName){
 		$this->db->select('*');
 		$this->db->from('tb_take');
 		$this->db->join('tb_member', 'tb_member.member_family = tb_take.take_partner');
@@ -36,10 +36,14 @@ CLass Family_Database extends CI_Model{
 		return $query->result_array();
 	}
 
-	public function load_(){
-		$this->db->select('');
-
-
+	public function load_family_buddy_name($familyName){
+		$this->db->select('take_partner');
+		$this->db->distinct();
+		$this->db->from('tb_take');
+		$this->db->where("take_host = '".$familyName."'");
+		$this->db->order_by('take_partner','AES');
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 
 }

@@ -9,6 +9,7 @@ class Member_Management extends CI_Controller {
 	 }
 
 	public function index(){
+		$this->load->view('menu_view');
 		$this->member_add();
 		$this->member_edit();
 	}
@@ -45,11 +46,13 @@ class Member_Management extends CI_Controller {
 	}
 
 	public function member_edit(){
+
 		$result = $this->member_management_database->load_all_member();
 		$this->load->view('member_management_edit_view',array('data'=>$result));
 	}
 
 	public function member_edit_edit(){
+		$this->load->view('menu_view');
 		$stdID=$this->uri->segment(3);
 		$result = $this->member_management_database->load_member_by_id($stdID);
 		$this->load->view('member_management_edit_edit_view',array('data'=> $result));

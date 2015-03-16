@@ -1,0 +1,123 @@
+*{
+
+}
+
+#profile_container {
+	margin: 0 auto;
+
+}
+
+#title{
+	-moz-text-shadow: 		3px 3px #DAE1E5;
+	-webkit-text-shadow:	3px 3px #DAE1E5;
+	text-shadow: 			3px 3px #DAE1E5;
+}
+
+#profile{
+	width:80%;
+	margin: 0 auto;
+	overflow: hidden;
+
+}
+
+#profile img{
+	margin-top:50px;
+	margin-left:2.5%;
+	float: left;
+	width:25%;
+	height: 25%;
+	border-radius: 199px;
+	border : 5px solid #2c3e50;
+
+	-moz-box-shadow:    4px 4px #DAE1E5;
+  	-webkit-box-shadow: 4px 4px #DAE1E5;
+  	box-shadow:         4px 4px #DAE1E5;
+}
+
+#profile #article1{
+	margin: 0 auto;
+	float:right;
+	width:70%;
+	overflow: hidden;
+	padding: 30px;
+
+}
+
+#profile #article1 header{
+	background: #2c3e50;
+	padding: 10px;
+	position: relative;
+	left: 30px;
+	top:20px;
+	width:70%;
+
+	-moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0.2);
+  	-webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  	box-shadow:         0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#profile #article1 header h4{
+	color:#ecf0f1;
+}
+
+#profile #article1 .content {
+	background: #EFF0F2;
+	padding: 20px;
+	width:100%;
+
+	-moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0.2);
+  	-webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  	box-shadow:         0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+	#profile #article1 .content li{
+		color:#2c3e50;
+	}
+
+	#profile #article1 .content li b{
+		color:#2C3E50;
+	}
+
+
+
+
+#profile .article2 header{
+	background: #2c3e50;
+	padding: 10px;
+	position: relative;
+	left: 30px;
+	top:20px;
+	display: inline-block;
+	width:60%;
+
+	-moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0.2);
+  	-webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  	box-shadow:         0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#profile .article2 header h4,h3{
+	color:#ecf0f1;
+}
+
+#profile .article2 .content {
+	background: #EFF0F2;
+	padding: 20px;
+	width:100%;
+
+
+	-moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0.2);
+  	-webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  	box-shadow:         0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.content-repet{
+	margin-bottom:20px;
+}
+
+	#profile .article2 .content li{
+		color:#2C3E50;
+	}
+
+	#profile .article2 .content li b{
+		color:#2C3E50;
+	}

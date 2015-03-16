@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
 #cssmenu {
-  background: #2980b9;
+  background: #2A3744;
   width: auto;
 }
 #cssmenu ul {
@@ -12,7 +12,7 @@
   zoom: 1;
 }
 #cssmenu ul:after {
-  content: " ";
+  content: "";
   display: block;
   font-size: 0;
   height: 0;
@@ -50,6 +50,7 @@
 }
 #cssmenu ul li a:hover {
   color: #333333;
+background:#FC6042;
 }
 #cssmenu ul li a:hover:before {
   width: 100%;
@@ -66,6 +67,7 @@
   opacity: .5;
 }
 #cssmenu ul li a:before {
+<!--
   content: "";
   display: block;
   position: absolute;
@@ -79,6 +81,7 @@
   -ms-transition: width .25s;
   -o-transition: width .25s;
   transition: width .25s;
+-->
 }
 #cssmenu ul li.last > a:after,
 #cssmenu ul li:last-child > a:after {
