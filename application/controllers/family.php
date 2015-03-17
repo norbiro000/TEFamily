@@ -27,6 +27,7 @@ Class Family extends CI_Controller{
 				if($key['member_family']==$takeNames[$i]['take_partner']){
 					$vartest{$i}[] = $key;
 					//array_push($take, $vartest{$i});
+					//array_push($partnerData, $vartest{$i});
 				}
 			}
 		}
@@ -40,7 +41,7 @@ Class Family extends CI_Controller{
 
 		$data = array('familyData'=>$familyList,'partnerData'=>$partnerData);
 		$this->load->view('menu_view');
-		$this->load->view('family_view',$data);
+		$this->load->view('test',$data);
 	}
 
 	private function setFamily($id){
