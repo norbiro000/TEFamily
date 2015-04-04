@@ -6,10 +6,11 @@ Class Profile extends CI_Controller{
 		$this->load->helper(array('form', 'url'));
 	 	$this->load->library('form_validation');
 	 	$this->load->model('member_database');
+	 	$this->load->view('menu_view');
+		$this->load->view('head');
 	}
 
 	public function index(){
-		$this->load->view('menu_view');
 		$id = $this->uri->segment(3);
 		if($id==''){
 			$id = $this->session->userdata('logged_in')['studentid'];

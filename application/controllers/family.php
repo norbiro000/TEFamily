@@ -7,6 +7,8 @@ Class Family extends CI_Controller{
 		$this->db->where('member_studentID', $this->session->userdata('logged_in')['studentid']);
 		$this->db->update('tb_member', $data); 
 		$this->load->model('family_database');
+		$this->load->view('menu_view');
+		$this->load->view('head');
 	}
 
 	public function index(){
@@ -40,7 +42,6 @@ Class Family extends CI_Controller{
 		
 
 		$data = array('familyData'=>$familyList,'partnerData'=>$partnerData);
-		$this->load->view('menu_view');
 		$this->load->view('test',$data);
 	}
 

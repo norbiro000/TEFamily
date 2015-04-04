@@ -20,11 +20,12 @@ Class User_Authentication extends CI_Controller {
 
 // Load database
 		$this->load->model('login_database');
+		$this->load->view('menu_view');
+		$this->load->view('head');
 
 	}
 
 	public function index(){
-		$this->load->view('menu_view');
 		if($this->session->userdata('logged_in')==null){
 			$this->load->view('login_form');
 		}else{
@@ -109,7 +110,7 @@ Class User_Authentication extends CI_Controller {
 						'usertype' =>$result[0]->member_type
 						);
 				$this->session->set_userdata('logged_in', $data);
-				redirect('User_Authentication');
+				redirect('');
 				}
 			}else{
 				$data = array(

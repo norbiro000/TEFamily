@@ -5,14 +5,15 @@
 	<title></title>
 </head>
 <body>
+
 	<div id="member_edit_edit_container">
+
 		<?php echo validation_errors() ?>
 		<?php echo form_open('member_management/member_edit_save');?>
 
 			<label for="studentid">Student ID : </label><input type="text" name="studentid" value="<?php echo set_value('fname',$data[0]['member_studentID']);?>"  disabled >
 
 			<input type="hidden" name="studentidhide" value="<?php echo set_value('fname',$data[0]['member_studentID']);?>" >
-
 
 			<label for="fname">Username : </label><input type="text" name="username" value="<?php echo set_value('fname',$data[0]['member_username']);?>">
 

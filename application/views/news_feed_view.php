@@ -6,8 +6,8 @@
 	<title></title>
 </head>
 <body>
-
-	<table border='1'>
+<div class="table_news">
+	<table border="1">
 		<thead>
 			<th>หมายเลขข่าว</th>
 			<th>หัวข้อ</th>
@@ -17,7 +17,6 @@
 		</thead>
 		<tbody>
 			<?php foreach($data as $row) {
-			
 			?>
 				<tr>
 					<td><?php echo $row['news_newsID'];?></td>
@@ -33,5 +32,5 @@
 			<?php }?>
 		</tbody>
 	</table>
-
+</div>
 </html>

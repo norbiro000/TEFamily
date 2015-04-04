@@ -7,7 +7,8 @@
 </head>
 <body>
 	<div id="member_edit_container">
-		<table border='1'>
+		<h4>Member List</h4>
+		<table class="table table-striped">
 			<thead>
 				<th>Student ID</th>
 				<th>Username</th>

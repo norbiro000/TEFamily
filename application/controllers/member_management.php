@@ -6,10 +6,11 @@ class Member_Management extends CI_Controller {
 	 	$this->load->helper(array('form', 'url'));
 	 	$this->load->library('form_validation');
 	 	$this->load->model('member_management_database');
+		$this->load->view('menu_view');
+		$this->load->view('head');
 	 }
 
 	public function index(){
-		$this->load->view('menu_view');
 		$this->member_add();
 		$this->member_edit();
 	}
@@ -20,8 +21,8 @@ class Member_Management extends CI_Controller {
 
 	public function member_add_save(){
 		$this->form_validation->set_rules('studentid','studentid','required|min_length[10]|max_length[10]|is_unique[tb_member.member_studentID]');
-		$this->form_validation->set_rules('fname','fname','required|alpha');
-		$this->form_validation->set_rules('lname','lname','required|alpha');
+		$this->form_validation->set_rules('fname','fname','required');
+		$this->form_validation->set_rules('lname','lname','required');
 		$this->form_validation->set_rules('password','Password','required');
 		$this->form_validation->set_rules('conf-password','Password Confirmation','required|matches[password]');
 
@@ -52,7 +53,7 @@ class Member_Management extends CI_Controller {
 	}
 
 	public function member_edit_edit(){
-		$this->load->view('menu_view');
+		
 		$stdID=$this->uri->segment(3);
 		$result = $this->member_management_database->load_member_by_id($stdID);
 		$this->load->view('member_management_edit_edit_view',array('data'=> $result));

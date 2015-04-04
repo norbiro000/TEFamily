@@ -3,19 +3,29 @@ class News_feed extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->library('form_validation');
 		$this->load->model('news_feed_database');
 		$this->load->helper('date');
 		$this->load->helper('url');
 		$this->load->library('image_lib');
 		$this->load->controller('search');
+		$this->load->view('menu_view');
+		$this->load->view('head');
+		
+
 	}
 
 	public function index(){
-		$this->load->view('menu_view');
+	
 		$this->read_news($this->uri->segment(3));
+		if(is_logged_in()){
+			$this->load->view('news_feed_post_view');
+		}
+		
 		$this->show_news_feed();
-		$this->load->view('search_news_view');
-		$this->load->view('news_feed_post_view');
+
+		//$this->load->view('search_news_view');
+		//$this->load->view('news_feed_post_view');
 	}
 
 	public function show_news_feed(){
@@ -34,10 +44,8 @@ class News_feed extends CI_Controller {
 	}
 
 	public function post_news_feed(){
-		$this->load->helper(array('form','url'));
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('topic','Topic','required');
-		$this->form_validation->set_rules('details','Details','required');
+		$this->form_validation->set_rules('topic','Topic','');
+		$this->form_validation->set_rules('details','Details','');
 		if($this->form_validation->run()==false){
 			redirect('news_feed');
 	}
@@ -53,6 +61,7 @@ class News_feed extends CI_Controller {
 	public function delete_news_feed(){
 		$this->news_feed_database->delete_news($this->uri->segment(3));
 		$this->index();
+		redirect('news_feed','refresh');
 	}
 
 	public function edit_news_feed(){

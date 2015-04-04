@@ -79,6 +79,8 @@ right connector from last child*/
 	    margin-left: -1px;
 	}
 	.tree li a{
+
+		width: 80%;
 	    border: 1px solid #ccc;
 	    padding: 10px 10px;
 	    text-decoration: none;
@@ -88,6 +90,26 @@ right connector from last child*/
 	    font-size: 11px;
 	    display: inline-block;
 	    border-radius: 5px;
+	    background-color: #FC6042;
+	    -webkit-border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    transition: all 0.5s;
+	    -webkit-transition: all 0.5s;
+	    -moz-transition: all 0.5s;
+	}
+
+	.tree header{
+		width: 500px;
+	    border: 1px solid #ccc;
+	    padding: 10px 10px;
+	    text-decoration: none;
+	    color: #FFF;
+	    font-weight : normal;
+	    font-family: arial, verdana, tahoma;
+	    font-size: 11px;
+	    display: inline-block;
+	    border-radius: 5px;
+	    background-color: #34495E;
 	    -webkit-border-radius: 5px;
 	    -moz-border-radius: 5px;
 	    transition: all 0.5s;

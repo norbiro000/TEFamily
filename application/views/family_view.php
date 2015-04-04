@@ -31,9 +31,6 @@ for($i=0;$i<count($partnerData);$i++){
 }
 
 ?>
-
-
-
 	<header><h1>Family</h1></header>
 	<?php foreach ($familyData as $row): ?>
 	<section class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
