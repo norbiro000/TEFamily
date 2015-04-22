@@ -36,7 +36,8 @@ Class User_Authentication extends CI_Controller {
 					'username' =>$result[0]->member_username,
 					'password' =>$result[0]->member_password,
 					'studentid' =>$result[0]->member_studentID,
-					'usertype' =>$result[0]->member_type
+					'usertype' =>$result[0]->member_type,
+					'familyname' =>$result[0]->member_family
 					);
 				$this->load->view('admin_page', $data);
 			}
@@ -107,7 +108,8 @@ Class User_Authentication extends CI_Controller {
 						'username' =>$result[0]->member_username,
 						'password' =>$result[0]->member_password,
 						'studentid' =>$result[0]->member_studentID,
-						'usertype' =>$result[0]->member_type
+						'usertype' =>$result[0]->member_type,
+						'familyname' =>$result[0]->member_family
 						);
 				$this->session->set_userdata('logged_in', $data);
 				redirect('');

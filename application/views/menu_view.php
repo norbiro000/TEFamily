@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-
 <?php 
 {
 	$login =  is_logged_in();
@@ -45,5 +38,3 @@
 	}
 } 
 ?>
-</body>
-</html>

@@ -159,3 +159,6 @@ right connector from last child*/
 		background: #2C82C9;
 	}
 
+	.partnerForm{
+		display: none;
+	}

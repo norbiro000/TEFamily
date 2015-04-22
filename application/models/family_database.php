@@ -37,13 +37,17 @@ CLass Family_Database extends CI_Model{
 	}
 
 	public function load_family_buddy_name($familyName){
-		$this->db->select('take_partner');
+		$this->db->select('take_id, take_partner');
 		$this->db->distinct();
 		$this->db->from('tb_take');
 		$this->db->where("take_host = '".$familyName."'");
 		$this->db->order_by('take_partner','AES');
 		$query = $this->db->get();
 		return $query->result_array();
+	}
+
+	public function deleteTake($takeId){
+		$this->db->delete('tb_take', array('take_id' => $takeId));
 	}
 
 }

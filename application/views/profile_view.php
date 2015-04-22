@@ -11,6 +11,60 @@
 			});
 		});
 	   </script>
+
+	   <script>
+	   	$(document).ready(function(){
+	   		var editor = {
+	   				init:function(){
+	   				editing = 0;
+	   				olddata = 0;
+	   				newdata = 0;
+	   				temp = 0;
+	   				$('*').on('click','a', function(e) {
+	   					e.preventDefault();
+	   					
+	   					//$(this).hide();
+
+	   					if($(this).is('.edit')){
+	   						temp = newdata;
+	   						newdata = this;
+	   						olddata = temp;
+	   						
+	   						if(editing==1){
+	   							$('.editable').replaceWith(olddata);
+	   							editing=0;
+	   						}
+	   						editing=1;
+							var txt = $(this).html();
+		   					$(this)
+		   						.replaceWith("<div class='editable' height='30px'><input value='"+txt+"' /><button>SAVE</button><button>Cancle</button></class>")
+	   					}
+
+	   					/*var editing = 'false';
+	   					var txt = $(".edit").html();
+						var html = '<a id="edit"/>'+txt+'</a>';
+	   					if($(e.target).is(".edit")){
+	   						$(.edit").insertAfter("<input value='"+txt+"' id='editable'/> ");
+	   						$(.edit").hide();
+	   					}else{
+	   						//$(.editable").replaceWith($(e.target).html(html));
+	   					}*/
+
+					});
+	   			},
+
+	   			edit:function(){
+	   				
+	   			},
+
+	   			close:function(){
+	   				
+	   			}
+	   		}
+	   		editor.init();
+	   		
+	   	});
+	   </script>
 	   <link href="<?php echo base_url(); ?>assets/css/profile.css" rel="stylesheet">
 </head>
 <body>
@@ -23,9 +77,9 @@
 				<div class="content">
 					<ul>
 						<li><b>Student ID : </b><?php echo $data[0]['member_studentID']; ?></li>
-						<li><b>Name : </b><?php echo $data[0]['member_firstname']." ".$data[0]['member_lastname']; ?></li>
-						<li><b>Nickname : </b><?php echo $data[0]['member_nickname']; ?></li>
-						<li><b>Major : </b><?php echo $data[0]['member_major']; ?></li>
+						<li><b>Name : </b><a class="edit"><?php echo $data[0]['member_firstname']; ?></a><a class='edit'> <?php echo $data[0]['member_lastname']; ?></a></li>
+						<li><b>Nickname : </b><a class="edit"><?php echo $data[0]['member_nickname']; ?></a></li>
+						<li><b>Major : </b><?php echo $data[0]['member_major']; ?></a></li>
 					</ul>
 				</div>
 			</article>
