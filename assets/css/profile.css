@@ -2,6 +2,10 @@
 
 }
 
+body{
+	background: #E9E9E9;
+}
+
 #profile_container {
 	margin: 0 auto;
 
@@ -61,7 +65,7 @@
 }
 
 #profile #article1 .content {
-	background: #EFF0F2;
+	background: #FFF;
 	padding: 20px;
 	width:100%;
 
@@ -100,7 +104,7 @@
 }
 
 #profile .article2 .content {
-	background: #EFF0F2;
+	background: #FFF;
 	padding: 20px;
 	width:100%;
 
@@ -121,3 +125,7 @@
 	#profile .article2 .content li b{
 		color:#2C3E50;
 	}
+
+.article2 > header {
+	position:fixed;
+}

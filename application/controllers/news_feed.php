@@ -9,14 +9,11 @@ class News_feed extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('image_lib');
 		$this->load->controller('search');
-		$this->load->view('menu_view');
-		$this->load->view('head');
-		
-
 	}
 
 	public function index(){
-	
+		$this->load->view('head');
+		$this->load->view('menu_view');
 		$this->read_news($this->uri->segment(3));
 		if(is_logged_in()){
 			$this->load->view('news_feed_post_view');
