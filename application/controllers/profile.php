@@ -2,6 +2,9 @@
 Class Profile extends CI_Controller{
 	function __construct(){
 		parent::__construct();
+		if(!is_logged_in()){
+			redirect('user_authentication');
+		}
 		$this->load->model('search_database');
 		$this->load->helper(array('form', 'url'));
 	 	$this->load->library('form_validation');
@@ -18,6 +21,18 @@ Class Profile extends CI_Controller{
 		}
 
 		$result = $this->member_database->load_profile($id);
+
+		
+		foreach ($result as $key => $value) {
+			foreach ($value as $keys =>$values) {
+				if($values=="" || is_null($values)){
+					$result[$key][$keys]='Empty';
+				}
+			}
+			
+		}
+		//echo $result[0]['member_studentID'];
+		
 		$this->load->view('profile_view',array('data'=>$result));
 	}
 

@@ -9,16 +9,16 @@ Class User_Authentication extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
-// Load form helper library
+		// Load form helper library
 		$this->load->helper('form');
 
-// Load form validation library
+		// Load form validation library
 		$this->load->library('form_validation');
 
-// Load session library
+		// Load session library
 		$this->load->library('session');
 
-// Load database
+		// Load database
 		$this->load->model('login_database');
 		$this->load->view('menu_view');
 		$this->load->view('head');
@@ -125,14 +125,13 @@ Class User_Authentication extends CI_Controller {
 
 // Logout from admin page
 	public function logout() {
-
 // Removing session data
 		$sess_array = array(
 			'username' => ''
 			);
 		$this->session->unset_userdata('logged_in', $sess_array);
 		$data['message_display'] = 'Successfully Logout';
-		$this->load->view('login_form', $data);
+		redirect('User_Authentication');
 	}
 }
 

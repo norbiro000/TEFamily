@@ -191,11 +191,10 @@
 								</div>
 								<div class="field">
 								  <label>Date  </label>
-								  <input name="date" placeholder="organization name" type="date">
+								  <input name="date" placeholder="date/mouth/year" type="date">
 								</div>
 								<input type="submit" class="ui button positive right floated" value="Submit">
-								<button class="ui button negative ">Close</button>
-							
+								<button class="ui button negative ">Close</button>							
 						</div>
 					</form>
 			</article>

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-	<meta charset="UTF-8">
-	<title></title>
-</head>
-<body>
+	
 	<h1>News Feed</h1>
 	<div id="news_reader_container">
 		<div id="news_header">
@@ -26,5 +19,3 @@
 			?>
 		</div> 
 	</div>
-</body>
-</html>
