@@ -1,8 +1,14 @@
-#main_container{
-width:80%;
-margin:0 auto;
+.setcenter{
+	margin: 0px auto;
+	text-align: center;
 }
 
-.center{
-margin:0 auto;
+.setvcenter{
+	text-align: center;
+vertical-align: middle;
+line-height: 90px;
+}
+
+.bg-red{
+	background: red;
 }

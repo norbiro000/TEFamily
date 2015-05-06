@@ -4,17 +4,18 @@
 	if(is_logged_in()==true){?>
 	<!--logged in menu -->
 		<?php if(getUserType()==='admin'){?>
-			<nav id="cssmenu">
-				<ul>
-					<li><a href="<?php echo base_url()?>index.php">Home</a></li>
-					<li><a href="<?php echo base_url()?>index.php/profile">Profile</a></li>
-					<li><a href="<?php echo base_url()?>index.php/news_feed">News Feed</a></li>
-					<li><a href="<?php echo base_url()?>index.php/member_management">Member Management</a></li>
-					<li><a href="<?php echo base_url()?>index.php/user_authentication/logout">Logout</a></li>
-				</ul>
+			<nav id="cssmenu" class="column row">
+					<ul>
+						<li><a href="<?php echo base_url()?>index.php">Home</a></li>
+						<li><a href="<?php echo base_url()?>index.php/profile">Profile</a></li>
+						<li><a href="<?php echo base_url()?>index.php/news_feed">News Feed</a></li>
+						<li><a href="<?php echo base_url()?>index.php/member_management">Member Management</a></li>
+						<li><a href="<?php echo base_url()?>index.php/user_authentication/logout">Logout</a></li>
+					</ul>
 			</nav>
 		<?php }else{ ?>
 			<nav id="cssmenu">
+				<div class="l">
 				<ul>
 					<li><a href="<?php echo base_url()?>index.php/profile">Home</a></li>
 					<li><a href="<?php echo base_url()?>index.php/news_feed">News Feed</a></li>
@@ -38,3 +39,5 @@
 	}
 } 
 ?>
+</div>
+<div class="ui twelve wide column">

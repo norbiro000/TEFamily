@@ -19,8 +19,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('menu_view');
 		$this->load->view('head');
+		$this->load->view('menu_view');
+		
 		$this->load->view('welcome_message');
 		$this->load->view('foot');
 

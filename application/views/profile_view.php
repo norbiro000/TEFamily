@@ -139,22 +139,28 @@
 </head>
 <body>
 	<div id='profile_container' class="">
-		<section id="profile">
-		<header><h1 id="title">Student Profile</h1></header>
-			<img src="<?php echo base_url()?>assets/img/students/<?php echo $data[0]['member_studentID']; ?>.jpg">
-			<article id="article1">
-				<header><h4>TE Informations.</h4></header>
-				<div class="content">
-					<ul>
-						<li><b>Student ID : </b><?php echo $data[0]['member_studentID']; ?></li>
-						<li><b>Name : </b><?php if($data[0]['member_studentID'] == getUserStudentID()){ echo '<a class="edit" data-colum="member_firstname">';}?><?php echo $data[0]['member_firstname']; ?></a><?php if($data[0]['member_studentID'] == getUserStudentID()){ echo '<a class="edit" data-colum="member_lastname">';}?> <?php echo $data[0]['member_lastname']; ?></a></li>
-						<li><b>Nickname : </b><?php if($data[0]['member_studentID'] == getUserStudentID()){ echo '<a class="edit" data-colum="member_nickname">';}?><?php echo $data[0]['member_nickname']; ?></a></li>
-						<li><b>Major : </b><?php echo $data[0]['member_major']; ?></a></li>
-					</ul>
+		<section id="profile" class="">
+			<header class="sixteen wide column">
+				<h1 id="title" class="ui header">Student Profile</h1>
+			</header>
+			<div class="ui grid sixteen wide column centered">
+				<div class="ui column">
+					<img class="ui small circular image setcenter" src="<?php echo base_url()?>assets/img/students/<?php echo $data[0]['member_studentID']; ?>.jpg">
+					<article id="article1" class="ui grid centered">
+						<div class="ui eight wide column ">
+						<!--<header class="setcenter"><h3 class="ui header">TE Informations.</h4></header>-->
+							<ul class="setcenter">
+								<li><h1></b><?php echo $data[0]['member_studentID']; ?></h1></li>
+								<li><b>Name : </b><?php if($data[0]['member_studentID'] == getUserStudentID()){ echo '<a class="edit" data-colum="member_firstname">';}?><?php echo $data[0]['member_firstname']; ?></a><?php if($data[0]['member_studentID'] == getUserStudentID()){ echo '<a class="edit" data-colum="member_lastname">';}?> <?php echo $data[0]['member_lastname']; ?></a></li>
+								<li><b>Nickname : </b><?php if($data[0]['member_studentID'] == getUserStudentID()){ echo '<a class="edit" data-colum="member_nickname">';}?><?php echo $data[0]['member_nickname']; ?></a></li>
+								<li><b>Major : </b><?php echo $data[0]['member_major']; ?></a></li>
+							</ul>
+						</div>
+					</article>
 				</div>
-			</article>
+			</div>
 
-			<article class="article2">
+			<article class="ui segment">
 				<header><h4>Personal Informations.</h4></header>
 				<div class="content">
 					<ul>
@@ -165,8 +171,9 @@
 					</ul>
 				</div>
 			</article>
+	
 
-			<article class="article2">
+			<article class="ui article2 segment eight wide column row">
 					<form id="addwork" method="post" action="<?php echo base_url();?>index.php/profile/addWork">
 						<div class=" content ui form">
 								<div class="field focus">
@@ -199,7 +206,7 @@
 					</form>
 			</article>
 
-			<article class="article2">
+			<article class="ui article2 segment">
 				<header>
 					<h3>Work Informations.</h3>
 				</header>

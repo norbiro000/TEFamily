@@ -6,11 +6,12 @@ class Member_Management extends CI_Controller {
 	 	$this->load->helper(array('form', 'url'));
 	 	$this->load->library('form_validation');
 	 	$this->load->model('member_management_database');
-		$this->load->view('menu_view');
-		$this->load->view('head');
+
 	 }
 
 	public function index(){
+		$this->load->view('head');
+		$this->load->view('menu_view');
 		$this->member_add();
 		$this->member_edit();
 	}
@@ -32,13 +33,17 @@ class Member_Management extends CI_Controller {
 		}
 		else
 		{
+			$datafalimy = $this->setFamily($this->input->post('studentid'));
 			$data = array('member_studentID' => $this->input->post('studentid'),
 				'member_username' => $this->input->post('studentid'),
 				'member_firstname' => $this->input->post('fname'),
 				'member_lastname' => $this->input->post('lname'),
 				'member_password' => $this->input->post('password'),
 				'member_picprofile' => 'null',
-				'member_type' => 'student'
+				'member_major'=>$datafalimy['member_major'],
+				'member_type' => 'student',
+				'member_family'=>$datafalimy['member_family'],
+				'member_startstudy'=>$datafalimy['member_startstudy']
 				);
 			$this->db->insert('tb_member',$data);
 			$this->load->view('member_management_add_view');
@@ -101,6 +106,41 @@ class Member_Management extends CI_Controller {
 		$this->db->where('member_studentID',$stdID);
 		$this->db->delete('tb_member');
 		redirect('member_management');
+	}
+
+
+	private function setFamily($id){
+		$year = substr($id,0,2);
+		$major = substr($id,4,3);
+		$number = substr($id,7,3);
+		$majorText;
+		switch($major){
+			case '211' : $majorText='IT'; break;
+			case '212' : $majorText='E-Biz'; break;
+			case '213' : $majorText='SE'; break;
+			case '214' : $majorText='ETM'; break;
+			case '215' : $majorText='GEO'; break;
+		}
+
+		$data = array('member_family'=> $majorText.$number,
+			'member_startstudy'=> $year,
+			'member_major'=>$majorText
+		);
+/*
+		$this->db->where('member_studentID',$id);
+		$this->db->update('tb_member', $data); */
+
+		/*
+		Back up
+
+		$data = $this->setFamily($this->session->userdata('logged_in')['studentid']);
+		$this->db->where('member_studentID', $this->session->userdata('logged_in')['studentid']);
+		$this->db->update('tb_member', $data); 
+		
+
+		*/
+
+		return $data;
 	}
 
 }?>
