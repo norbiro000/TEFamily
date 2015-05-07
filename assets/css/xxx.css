@@ -32,14 +32,14 @@
 	    position: absolute;
 	    top: 0;
 	    right: 50%;
-	    border-top: 1px solid #ccc;
+	    border-top: 5px solid #FC6042;
 	    width: 50%;
 	    height: 20px;
 	}
 	.tree li:after {
 	    right: auto;
 	    left: 50%;
-	    border-left: 1px solid #ccc;
+	    border-left: 5px solid #FC6042;
 	}
 	/*We need to remove left-right connectors from elements without 
 any siblings*/
@@ -57,7 +57,7 @@ right connector from last child*/
 	}
 	/*Adding back the vertical connector to the last nodes*/
 	.tree li:last-child::before {
-	    border-right: 1px solid #ccc;
+	    border-right: 5px solid #FC6042;
 	    border-radius: 0 5px 0 0;
 	    -webkit-border-radius: 0 5px 0 0;
 	    -moz-border-radius: 0 5px 0 0;
@@ -73,7 +73,7 @@ right connector from last child*/
 	    position: absolute;
 	    top: 0;
 	    left: 50%;
-	    border-left: 1px solid #ccc;
+	    border-left: 5px solid #FC6042;
 	    width: 0;
 	    height: 20px;
 	    margin-left: -1px;

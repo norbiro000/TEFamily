@@ -62,6 +62,8 @@ class News_feed extends CI_Controller {
 	}
 
 	public function edit_news_feed(){
+		$this->load->view('head');
+		$this->load->view('menu_view');
 		$news_id = $this->uri->segment(3);
 		$data = $this->news_feed_database->load_news_by_id('public',$news_id);
 		$this->load->view('news_feed_edit_view', array('data' => $data));
