@@ -5,7 +5,6 @@
 		<h4 id="add"><a class="ui teal button">Add Member</a></h4>
 		<div id="tableadduser">
 		
-
 					<label for="studentid">Student ID</label>
 					<input type="text" name="studentid">
 								
@@ -15,19 +14,13 @@
 				
 					<label for="lname">Lastname</label>
 					<input type="text" name="lname">
-				
-			
-			
-				
+					
 					<label for="password">Password</label>
 					<input type="password" name="password">
-				
-			
 			
 				
 					<label for="conf-password">Confirm-password : </label>
-					<input type="password" name="conf-password">
-				
+					<input type="password" name="conf-password">		
 			
 			
 				<input type="submit" value="Add" class="ui button positive float right">

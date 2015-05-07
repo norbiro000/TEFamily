@@ -10,6 +10,7 @@
 						<li><a href="<?php echo base_url()?>index.php/profile">Profile</a></li>
 						<li><a href="<?php echo base_url()?>index.php/news_feed">News Feed</a></li>
 						<li><a href="<?php echo base_url()?>index.php/member_management">Member Management</a></li>
+						<li><a href="<?php echo base_url()?>index.php/search/">Search</a></li>
 						<li><a href="<?php echo base_url()?>index.php/user_authentication/logout">Logout</a></li>
 					</ul>
 			</nav>
@@ -20,6 +21,7 @@
 					<li><a href="<?php echo base_url()?>index.php/profile">Home</a></li>
 					<li><a href="<?php echo base_url()?>index.php/news_feed">News Feed</a></li>
 					<li><a href="<?php echo base_url()?>index.php/family">My Family</a></li>
+					<li><a href="<?php echo base_url()?>index.php/search/">Search</a></li>
 					<li><a href="<?php echo base_url()?>index.php/user_authentication/logout">Logout</a></li>
 				</ul>
 			</nav>

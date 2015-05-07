@@ -17,10 +17,15 @@
 	   		$('#cssmenu').on('click','a', function(){
 	   			var link = $(this).attr('href');
 	   			window.location.href = link;
-	   		}); 		
+	   		});
+
+	   		$('#addeven').on('click', function(){
+		   		$('#addwork').slideToggle();
+	   		}); 	
 
 	   		var editor = {
 	   			init:function( config ){
+	   						$('#addwork').hide();
 		   					this.bindEvents();
 
 		   					$('.deleteWork').on('click','a',function(){
@@ -118,7 +123,7 @@
 					  data: { colum: columName, data: data }
 					})
 					  .done(function( msg ) {
-					    alert( "Success" );
+					    alert( "Edit Successfully" );
 					    location.reload();
 					  });
 	   			},
@@ -138,12 +143,12 @@
 <link href="<?php echo base_url(); ?>assets/css/profile.css" rel="stylesheet">
 </head>
 <body>
-	<div id='profile_container' class="">
-		<section id="profile" class="">
+	<div id='profile_container'>
+		<section id="profile" >
 			<header class="sixteen wide column">
 				<h1 id="title" class="ui header">Student Profile</h1>
 			</header>
-			<div class="ui grid sixteen wide column centered">
+			<div class="ui grid sixteen wide column centered segment teal">
 				<div class="ui column">
 					<img class="ui small circular image setcenter" src="<?php echo base_url()?>assets/img/students/<?php echo $data[0]['member_studentID']; ?>.jpg">
 					<article id="article1" class="ui grid centered">
@@ -160,9 +165,12 @@
 				</div>
 			</div>
 
-			<article class="ui segment">
-				<header><h4>Personal Informations.</h4></header>
-				<div class="content">
+			<article class="ui article2 segment grid">
+				<div class="ui four wide column">
+				<header class="ui header"><h3>Personal Informations.</h3></header>
+				</div>
+
+				<div class="ui twelve wide column">
 					<ul>
 						<li><b>Telephone Number : </b><?php if($data[0]['member_studentID'] == getUserStudentID()){ echo '<a class="edit" data-colum="member_telephone">';}?><?php echo $data[0]['member_telephone']; ?></a></li>
 						<li><b>Email : </b><?php if($data[0]['member_studentID'] == getUserStudentID()){ echo '<a class="edit" data-colum="member_email">';}?><?php echo $data[0]['member_email']; ?></a></li>
@@ -170,10 +178,49 @@
 						<li><b>Facebook : </b><?php if($data[0]['member_studentID'] == getUserStudentID()){ echo '<a class="edit" data-colum="member_facebook">';}?><?php echo $data[0]['member_facebook']; ?></a></li>
 					</ul>
 				</div>
+				</article>
 			</article>
-	
 
-			<article class="ui article2 segment eight wide column row">
+			<article class="ui article2 segment grid">
+				<div class="ui four wide column">
+				<header>
+					<h3>Work Informations.</h3>
+				</header>
+				</div>
+				<div class="ui twelve wide column">
+				<?php if($data[0]['tl_id']!="Empty"){ ?>
+					<?php 
+					foreach ($data as $row):
+					?>
+						<div class="" style="padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid teal;">
+							<?php if($data[0]['member_studentID'] == getUserStudentID()){ ?>
+							<div class="deleteWork aligned right" style="float:right;"><a href="<?php echo base_url();?>index.php/profile/deletework?wid=<?php echo $row['tl_id']?>"><i class="ui close icon red"></i></a></div>
+							<?php } ?>
+							<div class="content content-repet">
+								<ul>
+									<li><b>Name : </b><?php echo $row['tl_officename'] ?></li>
+									<li><b>Address : </b><?php echo $row['tl_officeaddress'] ?></li>
+									<li><b>Telephone : </b><?php echo $row['tl_officetelnumber'] ?></li>
+									<li><b>Jobs : </b><?php echo $row['tl_jobs'] ?></li>
+									<li><b>City : </b><?php echo $row['tl_workcity'] ?></li>
+									<li><b>Date : </b><?php echo $row['tl_datetime'] ?></li>
+								</ul>
+							</div>
+						</div>
+					<?php endforeach ?>
+				</div>
+				<?php }else{
+					echo "<b>No record</b>";
+				} ?>
+			</article>
+			
+
+
+
+			<?php if($data[0]['member_studentID'] == getUserStudentID()){ ?>
+			<button class="ui button teal" id="addeven">Add Event</button>
+
+			<article class="ui article2 segment eight wide column row" id="addwork">
 					<form id="addwork" method="post" action="<?php echo base_url();?>index.php/profile/addWork">
 						<div class=" content ui form">
 								<div class="field focus">
@@ -194,38 +241,19 @@
 								</div>
 								<div class="field">
 								  <label>City  </label>
-								  <input name="workcity" placeholder="Phuket" type="date">
+								  <input name="workcity" placeholder="Phuket" type="text">
 								</div>
 								<div class="field">
 								  <label>Date  </label>
-								  <input name="date" placeholder="date/mouth/year" type="date">
+								  <input name="date" id="focus" placeholder="date/mouth/year" type="date">
 								</div>
 								<input type="submit" class="ui button positive right floated" value="Submit">
 								<button class="ui button negative ">Close</button>							
 						</div>
 					</form>
 			</article>
+			<?php } ?>
 
-			<article class="ui article2 segment">
-				<header>
-					<h3>Work Informations.</h3>
-				</header>
-					<?php 
-					foreach ($data as $row):
-					?>
-					<div class="deleteWork"><a href="<?php echo base_url();?>index.php/profile/deletework?wid=<?php echo $row['tl_id']?>">X</a></div>
-					<div class="content content-repet">
-						<ul>
-							<li><b>Name : </b><?php echo $row['tl_officename'] ?></li>
-							<li><b>Address : </b><?php echo $row['tl_officename'] ?></li>
-							<li><b>Telephone : </b><?php echo $row['tl_officetelnumber'] ?></li>
-							<li><b>Jobs : </b><?php echo $row['tl_jobs'] ?></li>
-							<li><b>City : </b><?php echo $row['tl_workcity'] ?></li>
-							<li><b>Date : </b><?php echo $row['tl_datetime'] ?></li>
-						</ul>
-					</div>
-					<?php endforeach ?>
-			</article>
 		</section>
 	</div>
 	</body>

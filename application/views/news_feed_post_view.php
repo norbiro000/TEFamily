@@ -1,8 +1,9 @@
-<div id="post_view" class="">
+<div class="ui six wide column">
+<div id="post_view" class="ui five wide column">
 	<?php echo validation_errors(); ?>
 	<?php echo form_open('news_feed/post_news_feed'); ?>
 	
-		<h4>Post News</h4>
+	<h4>Post News</h4>
 	<div class="ui table">
 		<table>
 		<tr>
